@@ -1,4 +1,4 @@
-
+@import url(./colors.css);
 @font-face {
     font-family: 'ambit';
     src: url('/fonts/Ambit-Regular.woff2') format('woff2');

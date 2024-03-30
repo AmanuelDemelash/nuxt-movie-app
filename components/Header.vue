@@ -24,7 +24,7 @@
             </template>
             <template #end>
                 <div class="flex items-center gap-2">
-                    <InputText placeholder="Search" type="text" class="w-[8rem] sm:w-auto" />
+                    <InputText placeholder="Search" type="text" v-model="searchKey" class="w-[8rem] sm:w-auto" />
                     <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
                 </div>
             </template>
@@ -33,61 +33,22 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
-
+const searchKey= ref("");
 const items = ref([
     {
         label: 'Home',
         icon: 'pi pi-home'
     },
     {
-        label: 'Features',
+        label: 'Movies',
         icon: 'pi pi-star'
     },
-    {
-        label: 'Projects',
-        icon: 'pi pi-search',
-        items: [
-            {
-                label: 'Core',
-                icon: 'pi pi-bolt',
-                shortcut: '⌘+S'
-            },
-            {
-                label: 'Blocks',
-                icon: 'pi pi-server',
-                shortcut: '⌘+B'
-            },
-            {
-                label: 'UI Kit',
-                icon: 'pi pi-pencil',
-                shortcut: '⌘+U'
-            },
-            {
-                separator: true
-            },
-            {
-                label: 'Templates',
-                icon: 'pi pi-palette',
-                items: [
-                    {
-                        label: 'Apollo',
-                        icon: 'pi pi-palette',
-                        badge: 2
-                    },
-                    {
-                        label: 'Ultima',
-                        icon: 'pi pi-palette',
-                        badge: 3
-                    }
-                ]
-            }
-        ]
-    },
+   
     {
         label: 'Contact',
         icon: 'pi pi-envelope',
         badge: 3
     }
 ]);
+provide('search',searchKey)
 </script>
